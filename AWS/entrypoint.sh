@@ -18,7 +18,7 @@ export_ssm_parameters() {
 IFS=$(echo -en "\t")
   for parameter in `get_ssm_params`; do
 #    if 
-#    parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
+    parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
     echo $parameter >> .env
     export $parameter
 #     if [ "$APPN" == "identity-app" ]; then
