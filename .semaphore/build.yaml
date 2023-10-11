@@ -27,7 +27,7 @@ blocks:
         - name: AWS_REGION
           value: eu-west-1
         - name: AWS_ACCOUNT_ID
-          value: "196017409768"
+          value: "832791663202"
 
       jobs:
         - name: "ENV variables"
