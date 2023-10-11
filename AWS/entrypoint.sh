@@ -17,18 +17,20 @@ get_ssm_params() {
 export_ssm_parameters() {
 IFS=$(echo -en "\n\b")
   for parameter in `get_ssm_params`; do
-    if [ "$APPN" == "identity-app" ]; then
-#      parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
-      echo $parameter >> .env
-    elif [ "$APPN" == "core-app" ]; then
-      parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
-      echo $parameter >> .env
-      #export $parameter
-    else
-#      parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
-      echo "Info: Exporting parameter ${parameter%%=*}"
-      export $parameter
-    fi
+    parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
+    echo $parameter >> .env
+#     if [ "$APPN" == "identity-app" ]; then
+# #      parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
+#       echo $parameter >> .env
+#     elif [ "$APPN" == "core-app" ]; then
+#       parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
+#       echo $parameter >> .env
+#       #export $parameter
+#     else
+# #      parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
+#       echo "Info: Exporting parameter ${parameter%%=*}"
+#       export $parameter
+#     fi
   done
   cat .env
   exec "$@"
