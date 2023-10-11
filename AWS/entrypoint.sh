@@ -11,11 +11,11 @@ ssm_available() {
 
 get_ssm_params() {
   aws ssm get-parameters-by-path --region $AWS_REGION --path ${SSM_ENV}/${SSM_SERVICE} --with-decryption --query Parameters | sed 's,'"$SSM_ENV\/$SSM_SERVICE/"',,' | \
-  jq -r 'map("\(.Name | sub("'${SSM_ENV}/${SSM_SERVICE}'";""))=\(.Value)")| join("\n")'
+  jq -r 'map("\(.Name | sub("'${SSM_ENV}/${SSM_SERVICE}'";""))=\(.Value)")| join("\t")'
 }
 
 export_ssm_parameters() {
-#IFS=$(echo -en "\n\b")
+IFS=$(echo -en "\t")
   for parameter in `get_ssm_params`; do
 #    if 
 #    parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
