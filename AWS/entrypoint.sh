@@ -23,7 +23,7 @@ IFS=$(echo -en "\n\b")
     elif [ "$APPN" == "core-app" ]; then
       parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
       echo $parameter >> .env
-      export $parameter
+      #export $parameter
     else
       parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
       echo "Info: Exporting parameter ${parameter%%=*}"
