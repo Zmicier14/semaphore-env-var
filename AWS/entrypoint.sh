@@ -19,6 +19,7 @@ IFS=$(echo -en "\n\b")
   for parameter in `get_ssm_params`; do
     parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
     echo $parameter >> .env
+    export $parameter
 #     if [ "$APPN" == "identity-app" ]; then
 # #      parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
 #       echo $parameter >> .env
