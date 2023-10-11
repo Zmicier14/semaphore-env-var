@@ -21,7 +21,7 @@ IFS=$(echo -en "\n\b")
 #      parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
       echo $parameter >> .env
     elif [ "$APPN" == "core-app" ]; then
-#      parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
+      parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
       echo $parameter >> .env
       #export $parameter
     else
