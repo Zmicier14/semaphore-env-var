@@ -17,7 +17,7 @@ get_ssm_params() {
 export_ssm_parameters() {
 #IFS=$(echo -en "\n\b")
   for parameter in `get_ssm_params`; do
-    if 
+#    if 
 #    parameter=$(echo "$parameter" | sed 's/\\n/\n/g; s/\\r/\r/g')
     echo $parameter >> .env
     export $parameter
