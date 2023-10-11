@@ -30,6 +30,7 @@ IFS=$(echo -en "\n\b")
       export $parameter
     fi
   done
+  cat .env
   exec "$@"
 }
 

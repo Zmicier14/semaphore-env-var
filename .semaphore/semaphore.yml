@@ -36,4 +36,3 @@ blocks:
             - aws sts get-caller-identity
             - echo "Connected!"
             - source AWS/entrypoint.sh
-            - cat .env
